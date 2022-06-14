@@ -1,53 +1,25 @@
 import React from 'react';
-//import Hangman from './components/Hangman';
-import { useState } from 'react'
-
-import './App.css';
-
-function App() {
-  const [name, setName] = useState('')    //state variables
-  const [email, setEmail] = useState('')    //state variables
-  const [password, setPassword] = useState('')  //state variables
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; //front end routing
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 
 
-async function registerUser(event) { //front communicate with backend
+const App = () => {
+    return (
+    <div>
+<BrowserRouter>
+<Routes>
+    <Route path="/login" exact component ={Login} />
+    <Route path="/register" exact component ={Register} />
+    <Route path="/dashboard" exact component ={Dashboard} />
+</Routes>
+</BrowserRouter>
 
-  event.preventDefault()        //No return to startpage
-  const response = await fetch('http://localhost:3001/createUser', {
-    method: 'POST',   
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name, 
-      email, 
-      password,
-    }),
-   });
-
-   const data = await response.json()
-   console.log (data);
+    </div>
+    );
 }
 
 
-  return (
-   // <div className="App">
-     // <Hangman />
-     //</div>
-
-     <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={registerUser}> 
-      <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Name"/>
-      <br />
-      <input  value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email"/>
-      <br />
-      <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password"/>
-      <br /> 
-      <input type="submit" value="Register" />
-      </form>
-     </div>
-  );
-}
 
 export default App;

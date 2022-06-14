@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema(
         type: String,
         required: true,
     },
+    quote: { type: String},
 },
   //  {collection: 'user-data'}  //name of collection in mongo database
 );
