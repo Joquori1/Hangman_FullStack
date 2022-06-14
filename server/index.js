@@ -1,3 +1,5 @@
+//require('dotenv').config();
+
 const express = require("express");
 const app = express();
 
@@ -5,6 +7,8 @@ const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 
 const cors = require('cors');
+
+//middleware
 
 app.use(express.json());
 app.use(cors());
@@ -24,11 +28,21 @@ app.get("/getUsers", (req, res) => {
 
 
 app.post("/createUser", async (req, res) => {
-    const user = req.body
+    const user = req.body;  
+    try {
+        await User.create({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+        })
+        res.send(user);
+    } catch (err) {
+        res.json({ status: 'error', error: 'Duplicate email' })
+    }
     const newUser = new UserModel(user);
     await newUser.save();
 
-    res.json(user);
+  //  res.json(user);
 });
 
 
