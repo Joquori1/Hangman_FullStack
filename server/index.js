@@ -1,25 +1,34 @@
-//require('dotenv').config();
-
 
 //const http = require('http');
 const express = require("express");
-const app = express();
-
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs')
-
-
 const cors = require('cors');
+const bodyParser = require('body-parser');
+
+//require('dotenv').config();
+//const db = require('db');
+
+
+const app = express();
+
+//const port = process.env.PORT || 3001;
 
 //middleware
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors());
 
 
-mongoose.connect("mongodb+srv://jay123:password1234@cluster0.1mrtbcu.mongodb.net/hangman?retryWrites=true&w=majority");
+mongoose.connect(process.env.DB, { useNewUrlParser: true })
+  .then(() => console.log(`Database connected successfully`))
+  .catch((err) => console.log(err));
+
+mongoose.Promise = global.Promise;
+
 
 app.get("/getUsers", (req, res) => {
     UserModel.find({}, (err, result) => {
@@ -32,7 +41,7 @@ app.get("/getUsers", (req, res) => {
 });
 
 
-app.post("/api/register", async (req, res) => {
+app.post("/register", async (req, res) => {
     const user = req.body;  
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10) //cycle iterations and hash algorithms for passcodes
@@ -52,7 +61,7 @@ app.post("/api/register", async (req, res) => {
 });
 
 
-app.post("/api/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     const user = await UserModel.findOne({
             email: req.body.email,    
         })
@@ -88,7 +97,7 @@ if(!user) {
 });
 
 
-app.get("/userLogin", async (req, res) => {
+app.get("/login", async (req, res) => {
 
 const token = req.headers['x-access-token']
 
@@ -130,3 +139,4 @@ app.post("/api/quote", async (req, res) => {
 app.listen(3001, () => {
     console.log('SERVER RUNNING SUCCESSFULLY!');
 });
+
