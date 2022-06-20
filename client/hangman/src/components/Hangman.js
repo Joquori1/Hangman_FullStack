@@ -1,94 +1,105 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from "react";
+
+import Header from "./Header";
+import Figure from "./Figure";
+import WrongLetters from "./WrongLetters";
+import Word from "./Word";
+import Popup from "./Popup";
+import Notification from "./Notification";
+
+import { showNotification as show } from "../helpers/helpers";
+
+
 import './Hangman.css';
-import { randomWord } from './words.js';
 
-import step1 from "./images/nerdguy.png";
-import step2 from "./images/sassygirl.png";
-import step3 from "./images/coolguy.png";
-import step4 from "./images/1.png";
-import step5 from "./images/3.png";
-import step6 from "./images/5.png";
+const words = [
+	"node",
+	"application",
+	"boolean",
+	"java",
+	"programming",
+	"interface",
+	"wizard",
+	"javascript",
+	"code",
+];
 
-class Hangman extends Component {
- static defaultProps = {
-    maxWrong: 6, 
-    images: [step1, step2, step3, step4, step5, step6]
+let selectedWord = words[Math.floor(Math.random() * words.length)];
+
+function Hangman() {
+	const [playable, setPlayable] = useState(true);
+	const [correctLetters, setCorrectLetters] = useState([]);
+	const [wrongLetters, setWrongLetters] = useState([]);
+	const [showNotification, setShowNotification] = useState(false);
+
+	useEffect(() => {
+		const handleKeydown = (event) => {
+			const { key, keyCode } = event;
+			if (playable && keyCode >= 65 && keyCode <= 90) {
+				const letter = key.toLowerCase();
+				if (selectedWord.includes(letter)) {
+					if (!correctLetters.includes(letter)) {
+						setCorrectLetters((currentLetters) => [
+							...currentLetters,
+							letter,
+						]);
+					} else {
+						show(setShowNotification);
+					}
+				} else {
+					if (!wrongLetters.includes(letter)) {
+						setWrongLetters((currentLetters) => [
+							...currentLetters,
+							letter,
+						]);
+					} else {
+						show(setShowNotification);
+					}
+				}
+			}
+		};
+		window.addEventListener("keydown", handleKeydown);
+
+		return () => window.removeEventListener("keydown", handleKeydown);
+	}, [correctLetters, wrongLetters, playable]);
+
+	function playAgain() {
+		setPlayable(true);
+
+		// Empty Arrays
+		setCorrectLetters([]);
+		setWrongLetters([]);
+
+		const random = Math.floor(Math.random() * words.length);
+		selectedWord = words[random];
+	}
+
+	/// uuggggggg go bACK -  RELOOK, SOMETHING F'D UP!!!
+	return (
+		<>
+			<Header />
+			<div className="game-container">
+				<Figure wrongLetters={wrongLetters} />
+				<WrongLetters wrongLetters={wrongLetters} />
+				<Word
+					selectedWord={selectedWord}
+					correctLetters={correctLetters}
+				/>
+			</div>
+			<Popup
+				correctLetters={correctLetters}
+				wrongLetters={wrongLetters}
+				selectedWord={selectedWord}
+				setPlayable={setPlayable}
+				playAgain={playAgain}
+			/>
+			<Notification showNotification={showNotification} />
+  
+
+		</>
+
+	);
 }
 
-constructor(props) {
-    super(props);
-    this.state = {
-        mistake: 0,
-        guessed: new Set([]),
-        answer: randomWord()
-    }
-}
-   
-    handleGuess = e => {
-    let letter = e.target.value;
-    this.setState(st => ({
-      guessed: st.guessed.add(letter),
-      mistake: st.mistake + (st.answer.includes(letter) ? 0 : 1)
-    }));
-  }
-
-  guessedWord() {
-    return this.state.answer.split("").map(letter => (this.state.guessed.has(letter) ? letter : " _ "));
-  }
-
-  generateButtons() {
-    return "abcdefghjklmnopqrstuvwxyz".split("").map(letter => (
-      <button
-        class='btn btn-lg btn-primary m-2'
-        key={letter}
-        value={letter}
-        onClick={this.handleGuess}
-        disabled={this.state.guessed.has(letter)}
-      >
-        {letter}
-      </button>
-    ));
-  }
-
-  resetButton = () => {
-    this.setState({
-      mistake: 0,
-      guessed: new Set([]),
-      answer: randomWord()
-    });
-  }
-
-  render() {
-    const gameOver = this.state.mistake >= this.props.maxWrong;
-    const isWinner = this.guessedWord().join("") === this.state.answer;
-    let gameStat = this.generateButtons();
-
-    if (isWinner) {
-      gameStat = "You Won!!!"
-    }
-
-    if (gameOver) {
-      gameStat = "You Lost!!!"
-    }
-
-    return (
-      <div className="Hangman container">
-        <h1 className='text-center'>Hangman</h1>
-        <div className="float-right">Wrong Guesses: {this.state.mistake} of {this.props.maxWrong}</div>
-        <div className="text-center">
-          <img src={this.props.images[this.state.mistake]} alt=""/>
-        </div>
-        <div className="text-center">
-          <p>Guess the Programming Language:</p>
-          <p>
-            {!gameOver ? this.guessedWord() : this.state.answer}
-          </p>
-          <p>{gameStat}</p>
-          <button className='btn btn-info' onClick={this.resetButton}>Reset</button>
-        </div>
-      </div>
- )
-}
-}
 
 export default Hangman;

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 //import ReactDOM from 'react-dom/client';
 
 
-function App() {
+function Register() {
   const history = useNavigate() 
   const [name, setName] = useState('')    //state variables
   const [email, setEmail] = useState('')    //state variables
@@ -56,4 +56,4 @@ async function registerUser(event) { //front communicate with backend
   );
 }
 
-export default App;
+export default Register;

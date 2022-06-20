@@ -1,47 +1,65 @@
-
 //const http = require('http');
 const express = require("express");
-const mongoose = require('mongoose');
-const UserModel = require('./models/Users');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs')
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const port = 3000;
+const mongoose = require('mongoose');
+const UserModel = require('./schema/Users');
+const config = require('./DB.js');
+const registrationRoutes = require('./route');
 
-//require('dotenv').config();
-//const db = require('db');
 
+require("dotenv").config({ path: "./config.env"});
 
 const app = express();
-
-//const port = process.env.PORT || 3001;
-
 //middleware
-
+app.use( express.static( "public" ) );
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
 
-mongoose.connect(process.env.DB, { useNewUrlParser: true })
+
+mongoose.connect('mongodb+srv://hangman:hangman1@cluster0-hgmn.qikzqqo.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true })
   .then(() => console.log(`Database connected successfully`))
   .catch((err) => console.log(err));
 
 mongoose.Promise = global.Promise;
 
 
-app.get("/getUsers", (req, res) => {
-    UserModel.find({}, (err, result) => {
-        if (err) {
-            res.json(err);
-        } else {
-            res.json(result);
-        }
-    });
+app.set("view engine", "ejs");
+
+app.get("/", (req, res) => {
+  res.render("route");
 });
 
+app.get("/signup", (req, res) => {
+    res.render("register");
+  });
 
-app.post("/register", async (req, res) => {
+
+  app.get("/login", async (req, res) => {
+
+    const token = req.headers['x-access-token']
+    
+    
+    try {
+    const decoded = jwt.verify(token, 'secret123')
+    const email = decoded.email
+    const user = await User.findOne({ email: email })
+    
+    return res.json ({ status: 'ok', quote: user.quote})
+    } catch(error) {
+        console.log(error)
+        res.json({ status: 'error', error: 'invalid token'})
+    }
+    
+    });
+
+app.post("/signup", async (req, res) => {
     const user = req.body;  
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10) //cycle iterations and hash algorithms for passcodes
@@ -97,46 +115,8 @@ if(!user) {
 });
 
 
-app.get("/login", async (req, res) => {
 
-const token = req.headers['x-access-token']
-
-
-try {
-const decoded = jwt.verify(token, 'secret123')
-const email = decoded.email
-const user = await User.findOne({ email: email })
-
-return res.json ({ status: 'ok', quote: user.quote})
-} catch(error) {
-    console.log(error)
-    res.json({ status: 'error', error: 'invalid token'})
-}
-
-});
-
-
-app.post("/api/quote", async (req, res) => {
-
-    const token = req.headers['x-access-token']
-    
-    
-    try {
-    const decoded = jwt.verify(token, 'secret123')
-    const email = decoded.email
-    const user = await User.updateOne({ email: email }, { $set: {quote: req.body.quote } })
-    
-    return res.json ({ status: 'ok'})
-    } catch(error) {
-        console.log(error)
-        res.json({ status: 'error', error: 'invalid token'})
-    }
-    
-    });
-    
-
-
-app.listen(3001, () => {
-    console.log('SERVER RUNNING SUCCESSFULLY!');
+app.listen(port, () => {
+    console.log(`SERVER RUNNING SUCCESSFULLY! @ ${port}`);
 });
 

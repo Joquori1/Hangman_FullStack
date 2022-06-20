@@ -1,5 +1,4 @@
 import React from 'react';
-//import Hangman from './components/Hangman';
 import { useState } from 'react';
 
 function App() {
