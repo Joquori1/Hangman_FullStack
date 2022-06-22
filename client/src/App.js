@@ -5,7 +5,7 @@ import Register from "./components/Register";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Hangman from "./components/Hangman";
-//import Home from "./components/Home";
+import Players from "./components/Players";
 
 export default function App() {
   return (
@@ -17,6 +17,7 @@ export default function App() {
          <Route path="/" element={<Navbar/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/players" element={<Players />} />
           <Route path="/hangman" element={<Hangman />} />
           </Routes>
       </Router>

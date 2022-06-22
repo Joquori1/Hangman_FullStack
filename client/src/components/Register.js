@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 //import ReactDOM from 'react-dom/client';
 
-import './register.css';
+import '../index.css';
 
 
 function Register() {
@@ -39,9 +39,6 @@ async function registerUser(event) { //front communicate with backend
 
 
   return (
-   // <div className="App">
-     // <Hangman />
-     //</div>
 
      <div class="register">
       <h1 class="reg">Sign Up</h1>
