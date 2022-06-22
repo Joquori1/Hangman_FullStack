@@ -1,7 +1,7 @@
 //import ReactDOM from "react-dom/client";
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Register from "./components/Register";
+import Register from "./components/Registration";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Hangman from "./components/Hangman";
@@ -19,6 +19,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/players" element={<Players />} />
           <Route path="/hangman" element={<Hangman />} />
+
           </Routes>
       </Router>
       </>

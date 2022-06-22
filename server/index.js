@@ -4,10 +4,9 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs')
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const port = 3000;
+const port = 3001;
 const mongoose = require('mongoose');
-const UserModel = require('./schema/Users');
-const config = require('./DB.js');
+const UserModel = require('./schema/User');
 const registrationRoutes = require('./route');
 
 
@@ -20,7 +19,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use("./schema/User", registrationRoutes);
 
 
 mongoose.connect('mongodb+srv://hangman:hangman1@cluster0-hgmn.qikzqqo.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true })
@@ -30,13 +29,12 @@ mongoose.connect('mongodb+srv://hangman:hangman1@cluster0-hgmn.qikzqqo.mongodb.n
 mongoose.Promise = global.Promise;
 
 
-//app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("route");
 });
 
-app.get("/signup", (req, res) => {
+app.get("/register", (req, res) => {
     res.render("register");
   });
 

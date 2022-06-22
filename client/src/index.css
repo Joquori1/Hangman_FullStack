@@ -77,3 +77,26 @@ div.navbar {
   font-size: 100px;
   font-weight: bold;
 }
+
+.Registration, .Login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  margin: auto auto;
+  width: 100vh;
+  display: inline-block;
+  color: white;
+}
+.fields {
+	margin: 10px;
+}
+.buttons button {
+	margin: 10px;
+}
+.message {
+	padding: 5px;
+}
+.error {
+	border: solid #ec5555 2px;
+}
