@@ -30,7 +30,7 @@ mongoose.connect('mongodb+srv://hangman:hangman1@cluster0-hgmn.qikzqqo.mongodb.n
 mongoose.Promise = global.Promise;
 
 
-app.set("view engine", "ejs");
+//app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("route");
