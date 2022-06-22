@@ -1,7 +1,7 @@
 //import ReactDOM from "react-dom/client";
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Register from "./components/Registration";
+import Register from "./components/Register";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Hangman from "./components/Hangman";

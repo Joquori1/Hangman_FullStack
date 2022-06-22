@@ -11,7 +11,7 @@ function Navbar() {
       HANGMAN
       </h1>
       <ul>
-        <li><NavLink activeClassName="active" to="/register">Sign up</NavLink></li> 
+        <li><NavLink activeClassName="active" to="/register">Register</NavLink></li> 
          <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
          <li><NavLink activeClassName="active" to="/players">Players</NavLink></li>
       </ul>
