@@ -1,10 +1,9 @@
 import React from 'react';
-//import Hangman from './components/Hangman';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-//import ReactDOM from 'react-dom/client';
 
-import '../index.css';
+
+import '../Hangman.css';
 
 
 function Register() {

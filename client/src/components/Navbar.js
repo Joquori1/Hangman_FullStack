@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import "../index.css";
+import '../Hangman.css';
 
 
 function Navbar() {
@@ -14,7 +14,6 @@ function Navbar() {
         <li><NavLink activeClassName="active" to="/register">Sign up</NavLink></li> 
          <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
          <li><NavLink activeClassName="active" to="/players">Players</NavLink></li>
-         <li><NavLink activeClassName="active" to="/hangman">Hangman</NavLink></li>
       </ul>
   
     </div>  
