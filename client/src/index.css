@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+.imageColumn {
+  position:relative;
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+.imageAlign {
+  padding: 140px 0;
+}
+
+h1{
+  text-align: center;
+}
+
+.coolguy {
+  width: 100%;
+}
+
+div.login {
+  margin: auto auto;
+  width: 100vh;
+  display: inline-block;
+  color: white;
+}
+
+.log, .logform, .login {
+  text-align: center;
+  color: white;
+}
+
+.log {
+  font-weight: bold;
+}
+
+div.register {
+  margin: auto auto;
+  width: 100vh;
+  display: inline-block;
+  color: white;
+}
+
+.reg, .registered, input {
+  text-align: center;
+  color: white;
+}
+
+.reg {
+  font-weight: bold;
+}
+
+div.navbar {
+  margin: auto auto;
+  width: 100vh;
+  display: inline-block;
+}
+
+.hometext {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.Registration, .Login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  margin: auto auto;
+  width: 100vh;
+  display: inline-block;
+  color: white;
+}
+.fields {
+	margin: 10px;
+}
+.buttons button {
+	margin: 10px;
+}
+.message {
+	padding: 5px;
+}
+.error {
+	border: solid #ec5555 2px;
+}

@@ -10,7 +10,7 @@ import Notification from "./Notification";
 import { showNotification as show } from "../helpers/helpers";
 
 
-import './Hangman.css';
+import '../Hangman.css';
 
 const words = [
 	"node",

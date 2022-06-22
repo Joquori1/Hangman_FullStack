@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-import './login.css';
+import '../Hangman.css';
 
 
 function Login() {
