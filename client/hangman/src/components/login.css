@@ -1,11 +1,15 @@
-div.navbar {
+div.login {
     margin: auto auto;
     width: 100vh;
     display: inline-block;
+    color: white;
 }
 
-.hometext {
+.log, .logform, .login {
     text-align: center;
-    font-size: 100px;
+    color: white;
+}
+
+.log {
     font-weight: bold;
 }

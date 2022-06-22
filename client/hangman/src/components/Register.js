@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 //import ReactDOM from 'react-dom/client';
 
+import './register.css';
+
 
 function Register() {
   const history = useNavigate() 
@@ -15,7 +17,7 @@ function Register() {
 async function registerUser(event) { //front communicate with backend
 
   event.preventDefault()        //No return to startpage
-  const response = await fetch('http://localhost:3001/register', {
+  const response = await fetch('http://localhost:3000/register', {
     method: 'POST',   
     headers: {
       'Content-Type': 'application/json'
@@ -41,16 +43,16 @@ async function registerUser(event) { //front communicate with backend
      // <Hangman />
      //</div>
 
-     <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={registerUser}> 
+     <div class="register">
+      <h1 class="reg">Sign Up</h1>
+      <form class="registered" onSubmit={registerUser}> 
       <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Name"/>
       <br />
       <input  value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email"/>
       <br />
       <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password"/>
       <br /> 
-      <input type="submit" value="Register" />
+      <input type="submit" value="Signup"/>
       </form>
      </div>
   );

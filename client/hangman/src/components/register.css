@@ -1,11 +1,15 @@
-div.navbar {
+div.register {
     margin: auto auto;
     width: 100vh;
     display: inline-block;
+    color: white;
 }
 
-.hometext {
+.reg, .registered, input {
     text-align: center;
-    font-size: 100px;
+    color: white;
+}
+
+.reg {
     font-weight: bold;
 }
