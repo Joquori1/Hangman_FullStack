@@ -1,0 +1,15 @@
+div.register {
+    margin: auto auto;
+    width: 100vh;
+    display: inline-block;
+    color: white;
+}
+
+.reg, .registered, input {
+    text-align: center;
+    color: white;
+}
+
+.reg {
+    font-weight: bold;
+}

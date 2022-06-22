@@ -1,0 +1,15 @@
+div.login {
+    margin: auto auto;
+    width: 100vh;
+    display: inline-block;
+    color: white;
+}
+
+.log, .logform, .login {
+    text-align: center;
+    color: white;
+}
+
+.log {
+    font-weight: bold;
+}
