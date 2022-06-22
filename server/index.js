@@ -57,7 +57,7 @@ app.get("/register", (req, res) => {
     
     });
 
-app.post("/signup", async (req, res) => {
+app.post("/register", async (req, res) => {
     const user = req.body;  
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10) //cycle iterations and hash algorithms for passcodes
