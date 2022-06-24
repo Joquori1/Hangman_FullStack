@@ -57,7 +57,7 @@ div.register {
   color: white;
 }
 
-.reg, .registered, input {
+.reg, .registered, input, .sign {
   text-align: center;
   color: white;
 }
@@ -78,16 +78,7 @@ div.navbar {
   font-weight: bold;
 }
 
-.Registration, .Login {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-  margin: auto auto;
-  width: 100vh;
-  display: inline-block;
-  color: white;
-}
+
 .fields {
 	margin: 10px;
 }
@@ -100,3 +91,4 @@ div.navbar {
 .error {
 	border: solid #ec5555 2px;
 }
+

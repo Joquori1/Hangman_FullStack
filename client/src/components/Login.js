@@ -12,7 +12,7 @@ function Login() {
 async function loginUser(event) { //front communicate with backend
 
   event.preventDefault()        //No return to startpage
-  const response = await fetch('http://localhost:3000/login', {
+  const response = await fetch('http://localhost:3001/login', {
     method: 'POST',   
     headers: {
       'Content-Type': 'application/json'
@@ -41,12 +41,13 @@ async function loginUser(event) { //front communicate with backend
 
      <div class="login">
       <h1 class="log">Login</h1>
+      <div class="sign"> Don&#x27;t have an account? <a href="/register" target="_blank"> Sign Up </a></div>
       <form  class="logform" onSubmit={loginUser}> 
       <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email"/>
       <br />
       <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password"/>
       <br /> 
-      <input type="submit" value="Login" />
+      <button type="submit" onClick={loginUser}>Login</button>
       </form>
      </div>
   );

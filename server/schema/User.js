@@ -1,27 +1,26 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//SECTION  collection and schema for Registration
 let UserSchema = new Schema({
-    first_name: {
+    firstname: {
         type: String,
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+    //    match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
         required: [true, "can't be blank"],
 
     },
-    last_name: {
+   lastname: {
         type: String,
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+      //  match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
         required: [true, "can't be blank"]
     },
-    user_name: {
-        type: String,
+     username: {
+         type: String,
         lowercase: true,
         unique: true,
         required: [true, "can't be blank"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        index: true,
-    },
+    //  //   match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+         index: true,
+     },
     password: {
         type: String,
         required: true,
