@@ -8,7 +8,7 @@ import Axios from "axios";
 import '../Hangman.css';
 
 
-function Register(user) {
+function Register() {
 //  const history = useNavigate() 
   const [listOfUsers, setListOfUsers] = useState([]);
   const [name, setName] = useState('')  
@@ -70,19 +70,25 @@ const register = () => {
 
 
   return (
+
+    
 <>
      <div class="register">
       <h1 class="reg">Sign Up</h1>
       <div class="sign">Already have an account ?<a href="/login" target="_blank"> Sign in</a>
     </div>
       <form class="registered" onSubmit={register}> 
-      <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Name"/>
+      <input value={name} onChange={(e) => 
+        setName(e.target.value)} type="text" placeholder="Name"/>
       <br />
-      <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username"/>
+      <input value={username} onChange={(e) => 
+        setUsername(e.target.value)} type="text" placeholder="Username"/>
       <br />
-      <input  value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email"/>
+      <input  value={email} onChange={(e) => 
+        setEmail(e.target.value)} type="email" placeholder="Email"/>
       <br />
-      <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password"/>
+      <input value={password} onChange={(e) => 
+        setPassword(e.target.value)} type="password" placeholder="Password"/>
       <br /> 
       <div>
       <button type="submit"  onClick={register} > Register </button>

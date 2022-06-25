@@ -29,13 +29,10 @@ mongoose.connect(config.DB, { useNewUrlParser: true })
     });
   });
   
-  app.get("/login", (req, res) => {
-      res.render("login");
-    });
+  // app.get("/login", (req, res) => {
+  //     res.render("login");
+  //   });
   
-
-
-//routes routes
 
 app.post("/register", async (req, res) => {
     const user = req.body;  
