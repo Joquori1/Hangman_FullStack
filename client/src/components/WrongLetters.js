@@ -9,7 +9,7 @@ const WrongLetters = ({ wrongLetters }) => {
 					.map((letter, i) => <span key={i}>{letter}</span>)
 					.reduce(
 						(prev, curr) =>
-							prev === null ? [curr] : [prev, ", ", curr],
+							prev === null ? [curr] : [prev, "  ", curr], //leave space between wrong letters
 						null
 					)}
 			</div>

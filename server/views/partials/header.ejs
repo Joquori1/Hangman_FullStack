@@ -1,0 +1,33 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hangman | Game-play</title>
+		<link rel="stylesheet" href="/styles.css" />
+	</head>
+	<body>
+		<nav>
+			<h1 class="nav-tag-line">
+				<a href="/">Hangman, on Game-Play!</a>
+			</h1>
+			<ul>
+				<% if (user) { %>
+				<li>
+					<span id="welcome">Welcome,</span>
+					<span id="em"> <%= user.email %></span>
+				</li>
+				<li>
+					<a href="/logout">Log out</a>
+				</li>
+				<% } else { %>
+				<li><a href="/login">Log in</a></li>
+				<li>
+					<a href="/signup" class="btn"
+						><span id="signup">Sign up</span></a
+					>
+				</li>
+				<% } %>
+			</ul>
+		</nav>
+	</body>
+</html>

@@ -1,8 +1,9 @@
+// if same letter picked, notification rises from bottom of screen
 export function showNotification(setter) {
 	setter(true);
 	setTimeout(() => {
 		setter(false);
-	}, 2000);
+	}, 4000);
 }
 
 export function checkWin(correct, wrong, word) {

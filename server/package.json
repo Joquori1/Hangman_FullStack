@@ -1,38 +1,31 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.27.2",
-    "bcrypt": "^5.0.1",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.0",
-    "bootstrap": "^5.1.3",
-    "classnames": "^2.3.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.4"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  }
+	"name": "hangman-fb-v2.2.0",
+	"version": "2.2.0",
+	"description": "jwt, auth, mvc and fingers crossed!",
+	"main": "server.js",
+	"dependencies": {
+		"bcrypt": "^5.0.0",
+		"cookie-parser": "^1.4.5",
+		"dotenv": "^16.0.1",
+		"ejs": "^3.1.3",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.9.23",
+		"validator": "^13.1.1"
+	},
+	"scripts": {
+		"start": "nodemon server.js",
+		"dev": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Joquori1/Hangman_FullStack.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Joquori1/Hangman_FullStack/issues"
+	},
+	"homepage": "https://github.com/Joquori1/Hangman_FullStack#readme"
 }

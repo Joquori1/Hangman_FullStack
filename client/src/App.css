@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Stick&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+body,
+#root {
+	/* background-color: #34495e; */
+	background-color: #b6c4d2;
+	color: rgba(255, 255, 255, 0.556);
+	color: rgba(14, 14, 14, 0.945);
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 80vh;
+	margin: 0;
+	overflow: hidden;
+}
+
+h1 {
+	margin: 20px 0 0;
+}
+
+.hman-title {
+	/* <p> in Header for the word "Hangman" */
+	margin: 30px 0 0 0;
+	font-size: 68px;
+	font-family: "Stick", sans-serif;
+	font-weight: 600;
+}
+
+.hman-row2 {
+	/* <p> in Header for "Hangman" instruction */
+	margin: 30px 0 0 0;
+	font-size: 32px;
+	font-family: "Stick", sans-serif;
+	font-weight: 600;
+}
+
+.game-container {
+	padding: 20px 30px;
+	position: relative;
+	margin: auto;
+	height: 525px;
+	width: 675px;
+	/* height: 350px;
+	width: 450px; */
+}
+
+.figure-container {
+	fill: transparent;
+	stroke: rgba(14, 14, 14, 0.556);
+	stroke-width: 10px;
+	stroke-linecap: round;
+}
+
+.figure-part {
+	display: none;
+}
+
+.wrong-letters-container {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	/* maybe put border around empty/filled box */
+	flex-direction: column;
+	text-align: right;
+	text-align: center;
+}
+
+.wrong-letters-container p {
+	/* for the word, "Wrong Letters" */
+	margin: 0 0 5px;
+	font-size: 20px;
+}
+
+.wrong-letters-container span {
+	/* for wrong letters displaying (up to 6) */
+	font-size: 28px;
+	color: rgb(220, 29, 93);
+}
+
+.word {
+	display: flex;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.letter {
+	border-bottom: 4px solid #2941b9;
+	display: inline-flex;
+	font-size: 36px;
+	align-items: center;
+	justify-content: center;
+	margin: 0 3px;
+	height: 50px;
+	width: 20px;
+	color: rgb(32, 182, 49);
+}
+
+.popup-container {
+	background-color: rgba(0, 0, 0, 0.19);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/* display: flex; */
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup {
+	background: #2980b9;
+	border-radius: 5px;
+	box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.727);
+	padding: 20px;
+	text-align: center;
+}
+
+.popup button {
+	cursor: pointer;
+	background-color: #fff;
+	color: #2980b9;
+	border: 0;
+	margin-top: 20px;
+	padding: 12px 20px;
+	font-size: 16px;
+}
+
+.popup button:active {
+	transform: scale(0.98);
+}
+
+.popup button:focus {
+	outline: 0;
+}
+
+/** ////////////////////////////////
+
+Slider Notification: slides up from bottom of screen when
+same letter chosen
+*/
+
+.notification-container {
+	background-color: rgba(0, 0, 0, 0.19);
+	/* background-color: rgb(225, 81, 129); */
+	color: black;
+	/* top and bottom | left and right */
+	/* border-color: greenyellow rgb(225, 81, 129); */
+	/* border-width: thick; */
+
+	border-radius: 10px;
+	border: solid 0.3em;
+	padding: 15px 20px;
+	position: absolute;
+	bottom: -60px;
+	transition: transform 0.4s ease-in-out;
+}
+
+.notification-container p {
+	margin: 0;
+}
+
+.notification-container.show {
+	/* slides up from bottom of screen: same letter chosen */
+	transform: translateY(-70px);
+}

@@ -4,8 +4,8 @@ import React from "react";
 const Header = () => {
 	return (
 		<>
-			<h1>Hangman</h1>
-			<h2>Find the hidden word - Enter a letter</h2>
+			<p className="hman-title">Hangman</p>
+			<p className="hman-row2">Find the hidden word... Enter a letter!</p>
 		</>
 	);
 };

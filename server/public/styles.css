@@ -1,0 +1,242 @@
+/* google fonts */
+/* @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Stick&display=swap");
+
+body {
+	margin: 30px 50px;
+	font-size: 1.2rem;
+	letter-spacing: 1px;
+	background: #b6c4d2;
+}
+
+#welcome {
+	color: rgb(42, 41, 41);
+	font-weight: 700;
+	/* font-size: 2.5 em; */
+}
+
+#em {
+	color: rgb(154, 100, 24);
+	font-weight: 700;
+}
+
+#signup {
+	color: darkslategray;
+	font-weight: 700;
+}
+
+/* #logout {
+	color: red;
+} */
+
+.game-note1 {
+	color: rgb(201, 3, 3);
+	font-weight: bold;
+	text-align: center;
+	font-size: 20px;
+	width: 550px;
+	margin: 0 auto;
+	padding: 15px;
+	border-radius: 10px;
+	/* background: rgba(219, 208, 208, 0.838); */
+	background: white;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.727);
+}
+
+.game-note2 {
+	color: rgb(201, 3, 3);
+	font-weight: bold;
+	font-size: 1rem;
+	width: 1000px;
+	margin: 0 auto;
+	padding: 15px;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	background: rgba(219, 208, 208, 0.838);
+	/* background: white; */
+	box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.727);
+}
+
+h1,
+h2,
+h3,
+h4,
+ul,
+li,
+a,
+p,
+input,
+label,
+button,
+div,
+footer {
+	margin: 0;
+	padding: 0;
+	/* font-family: "Quicksand", sans-serif; */
+	font-family: "Stick", sans-serif;
+	color: #000;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 140px;
+}
+nav ul {
+	display: flex;
+	align-items: center;
+}
+nav li {
+	margin-left: 20px;
+}
+
+/* logoff button */
+nav li a {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 0.8em;
+	display: block;
+	padding: 10px 16px;
+	letter-spacing: 2px;
+	/* testing */
+	color: white;
+	border-radius: 36px;
+	background: #fd6c6c;
+}
+
+/* login button */
+.btn {
+	border-radius: 36px;
+	background: #fee996;
+}
+form h2 {
+	font-size: 2.4em;
+	font-weight: 900;
+	margin-bottom: 40px;
+}
+form {
+	width: 360px;
+	margin: 0 auto;
+	padding: 30px;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	background: white;
+	box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.727);
+}
+input {
+	padding: 10px 12px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	font-size: 1em;
+	width: 100%;
+}
+label {
+	display: block;
+	margin: 20px 0 10px;
+}
+button {
+	margin-top: 30px;
+	border-radius: 36px;
+	background: #fee996;
+	border: 0;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 0.8em;
+	display: block;
+	padding: 10px 16px;
+	letter-spacing: 2px;
+}
+.error {
+	color: #ff0099;
+	margin: 10px 2px;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+header {
+	display: flex;
+	align-items: center;
+}
+
+/* cool-guy hanging man img */
+.game-play-img img {
+	width: 300px;
+	margin-right: 100px;
+}
+
+/* header img {
+	width: 250px;
+	margin-right: 40px;
+} */
+
+/* "Enter Game-Play" */
+.hm-headings h2 {
+	font-size: 3.5em;
+	margin-bottom: 10px;
+}
+
+/* header h2 {
+	font-size: 3em;
+	margin-bottom: 10px;
+} */
+
+/* "By Tim... & Rob... Final" */
+header h3 {
+	font-size: 1.6em;
+	margin-bottom: 10px;
+	margin-left: 2px;
+	color: rgb(154, 100, 24);
+}
+
+/* "Game-Play" yellow btn */
+header .btn {
+	margin-top: 20px;
+	padding: 12px 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: inline-block;
+	font-size: 1em;
+	color: darkslategray;
+}
+
+/* <ul> container of all characters - holding each <li> character info */
+.characters {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 30px;
+	row-gap: 80px;
+	margin: 80px AUTO;
+	max-width: 1200px;
+}
+
+/* <li> container holding each <li> character's info */
+.character {
+	display: inline-block;
+	border-radius: 20px;
+	/* background: rgba(227, 160, 5, 0.168); */
+	background: #fee996;
+	position: relative;
+	text-align: center;
+	padding: 0 20px 30px 20px;
+	box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.727);
+}
+
+/* img for each <li> character */
+.character img {
+	width: 100px;
+	margin: -30px auto 20px;
+}
+footer {
+	text-align: center;
+	margin-top: 120px;
+	color: rgba(154, 100, 24, 0.737);
+	/* text-transform: uppercase; */
+	font-weight: bold;
+}
